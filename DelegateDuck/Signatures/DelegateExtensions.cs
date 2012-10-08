@@ -14,7 +14,15 @@ namespace DelegateDuck.Signatures
             (arg, i) => ConvertForNullableCompatibility(parameterInfos[i].ParameterType, arg)
             ).ToArray();
 
-         object returnValue = @delegate.DynamicInvoke(fixedArguments);
+         object returnValue;
+         try
+         {
+            returnValue = @delegate.DynamicInvoke(fixedArguments);
+         }
+         catch (TargetInvocationException ex)
+         {
+            throw ex.InnerException; // unfortunately we lost the oryginal stack trace...
+         }
 
          for (int i = 0; i < arguments.Length; i++)
             arguments[i] = fixedArguments[i]; // for ref/out arguments working

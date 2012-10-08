@@ -288,5 +288,59 @@ namespace Tests
          bool areEqual = new SignatureComparerForStatic().SignatureIsMatching(expectedSigniature, buildSignature);
          Assert.That(areEqual);
       }
+
+      [Test]
+      public void T15()
+      {
+         var t = Duck.New(
+            Fun: As.Method(() => { throw new ArgumentOutOfRangeException(); }));
+
+         Assert.Throws<ArgumentOutOfRangeException>(() => t.Fun());
+      }
+
+      public enum TestEnum
+      {}
+
+      [Test]
+      public void T16()
+      {
+         var t = Duck.New(
+            Fun: As.Method((TestEnum e) => { }));
+
+         Assert.DoesNotThrow(() => t.Fun((TestEnum)1));
+      }
+
+      public interface ITest
+      {
+         TestEnum F1(TestEnum a);
+         dynamic F2(dynamic a);
+      }
+
+      [Test]
+      public void T17()
+      {
+         ITest t = Duck.New(
+            F1: As.Method((TestEnum e) => e));
+
+         Assert.DoesNotThrow(() => t.F1((TestEnum)1));
+      }
+
+      [Test]
+      public void T18()
+      {
+         ITest t = Duck.New(
+            F2: As.Method((dynamic e) => e));
+
+         Assert.DoesNotThrow(() => t.F2((TestEnum)1));
+      }
+
+      [Test]
+      public void T19()
+      {
+         var t = Duck.New(
+            F2: As.Method((dynamic e) => e));
+
+         Assert.DoesNotThrow(() => t.F2((TestEnum)1));
+      }
    }
 }
