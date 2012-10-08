@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7181C99D-A2D7-4911-A1DB-435FF4DDC563}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsMethodCaseWithActionTests.cs" />
+    <Compile Include="AsMethodCaseWithFuncTests.cs" />
+    <Compile Include="C.cs" />
+    <Compile Include="CodeSamples\Sample02.cs" />
+    <Compile Include="CodeSamples\Sample01.cs" />
+    <Compile Include="DelegateExtensionsTests.cs" />
+    <Compile Include="Dynamic\PropertySet\CommonUsage\PropertyAccesorsTests.cs" />
+    <Compile Include="Dynamic\PropertySet\CommonUsage\PropertyValueTests.cs" />
+    <Compile Include="Dynamic\PropertySet\CommonUsage\UnrestrictedPropertyTests.cs" />
+    <Compile Include="Dynamic\PropertySet\SetValueTestBase.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\FunctionReturnValueSequenceTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\FunctionReturnValueTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\FunctionTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\PropertyAccesorsGetterAndSetterTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\PropertyAccesorsOnlyGetterTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\PropertyValueSequenceTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\PropertyValueTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\CommonUsage\UnrestrictedPropertyTests.cs" />
+    <Compile Include="Dynamic\ResultOfFunctionAndProperty\ReturnValueTestBase.cs" />
+    <Compile Include="Dynamic\UncategorizedTests.cs" />
+    <Compile Include="FunctionTests.cs" />
+    <Compile Include="ForTest\IA.cs" />
+    <Compile Include="ForTest\IB.cs" />
+    <Compile Include="ForTest\IC.cs" />
+    <Compile Include="MissingMemberTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertySet\CommonUsage\PropertyAccesorsCaseWhereGetterFirstThenSetterTests.cs" />
+    <Compile Include="PropertySet\CommonUsage\PropertyAccesorsCaseWhereOnlySetterTests.cs" />
+    <Compile Include="PropertySet\CommonUsage\PropertyAccesorsCaseWhereSetterFirstThenGetterTests.cs" />
+    <Compile Include="PropertySet\CommonUsage\PropertyValueTests.cs" />
+    <Compile Include="PropertySet\CommonUsage\UnrestrictedPropertyTests.cs" />
+    <Compile Include="PropertySet\EvidentlyBadUseCase\MethodResultSequenceTests.cs" />
+    <Compile Include="PropertySet\EvidentlyBadUseCase\MethodResultTests.cs" />
+    <Compile Include="PropertySet\EvidentlyBadUseCase\MethodTests.cs" />
+    <Compile Include="PropertySet\EvidentlyBadUseCase\PropertyValueSequenceTests.cs" />
+    <Compile Include="PropertySet\PropertySetBadUsageTestBase.cs" />
+    <Compile Include="PropertySet\PropertySetTestBase.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\FunctionReturnValueSequenceTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\FunctionReturnValueTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\FunctionTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\PropertyAccesorsGetterAndSetterTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\PropertyAccesorsOnlyGetterTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\PropertyValueSequenceTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\PropertyValueTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\CommonUsage\UnrestrictedPropertyTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\EvidentlyBadUseCase\FunctionReturnValueSequenceTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\EvidentlyBadUseCase\FunctionReturnValueTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\EvidentlyBadUseCase\FunctionTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\EvidentlyBadUseCase\PropertyGetterTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\EvidentlyBadUseCase\PropertyValueSequenceTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\EvidentlyBadUseCase\PropertyValueTests.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\ReturnValueBadUsageTestBase.cs" />
+    <Compile Include="ResultOfFunctionAndProperty\ReturnValueTestBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DelegateDuck\DelegateDuck.csproj">
+      <Project>{96FBFA1E-92EF-484B-A4F3-995642858A42}</Project>
+      <Name>DelegateDuck</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
