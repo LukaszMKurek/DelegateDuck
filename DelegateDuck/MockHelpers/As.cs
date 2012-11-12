@@ -196,21 +196,26 @@ namespace DelegateDuck.MockHelpers
       }
       #endregion MehodRestOvverload
 
-      public static PropertyValue PropertyValue<TResult>(this TResult value) // upewniæ siê ¿e property wbêdzie read/write
+      public static PropertyValue PropertyValue<TResult>(/*this */TResult value) // upewniæ siê ¿e property wbêdzie read/write
       {
          return new PropertyValue(value, typeof(TResult));
       }
 
-      public static MethodIgnoringArguments<TResult> MethodResult<TResult>(this TResult result)
+      public static MethodIgnoringArguments<TResult> MethodResult<TResult>(/*this */TResult result)
       {
          return new MethodIgnoringArguments<TResult>(() => result);
       }
 
-      public static MethodIgnoringArguments<TResult> MethodResultSequence<TResult>(this IEnumerable<TResult> resultSequence)
+      public static MethodIgnoringArguments<TResult> MethodResultSequence<TResult>(/*this */IEnumerable<TResult> resultSequence)
       {
          var resultSequenceProducer = new ResultSequenceProducer<TResult>(resultSequence);
 
          return new MethodIgnoringArguments<TResult>(resultSequenceProducer.GetNextResult);
+      }
+
+      public static MethodIgnoringArguments<TResult> MethodResultSequence<TResult>(params TResult[] resultSequence)
+      {
+         return MethodResultSequence((IEnumerable<TResult>)resultSequence);
       }
 
       /*public static MethodResultSequence<TResult> MethodResultSequence<TResult>(this IEnumerable resultSequence)
@@ -218,11 +223,16 @@ namespace DelegateDuck.MockHelpers
          return new MethodResultSequence<TResult>(resultSequence.Cast<TResult>());
       }*/
 
-      public static PropertyGetter<TResult> PropertyValueSequence<TResult>(this IEnumerable<TResult> resultSequence)
+      public static PropertyGetter<TResult> PropertyValueSequence<TResult>(/*this */IEnumerable<TResult> resultSequence)
       {
          var resultSequenceProducer = new ResultSequenceProducer<TResult>(resultSequence);
 
          return new PropertyGetter<TResult>(resultSequenceProducer.GetNextResult);
+      }
+
+      public static PropertyGetter<TResult> PropertyValueSequence<TResult>(params TResult[] resultSequence)
+      {
+         return PropertyValueSequence((IEnumerable<TResult>)resultSequence);
       }
 
       /*public static PropertyValueSequence<TResult> PropertyValueSequence<TResult>(this IEnumerable resultSequence)
@@ -239,7 +249,7 @@ namespace DelegateDuck.MockHelpers
       }
 
       [NotNull]
-      public static PropertySetter<T> PropertySet<T>([NotNull]Action<T> setter)
+      public static PropertySetter<T> Setter<T>([NotNull]Action<T> setter)
       {
          return new PropertySetter<T>(setter);
       }
@@ -247,12 +257,12 @@ namespace DelegateDuck.MockHelpers
       [NotNull]
       public static Property Set<T>([NotNull]this PropertyGetter<T> getter, [NotNull]Action<T> setter)
       {
-         var set = PropertySet(setter);
+         var set = Setter(setter);
          return new Property(getter, set);
       }
 
       [NotNull]
-      public static Property Get<T>([NotNull]this PropertySetter<T> setter, [NotNull]Func<T> getter)
+      public static Property Getter<T>([NotNull]this PropertySetter<T> setter, [NotNull]Func<T> getter)
       {
          var get = PropertyGet(getter);
          return new Property(get, setter);

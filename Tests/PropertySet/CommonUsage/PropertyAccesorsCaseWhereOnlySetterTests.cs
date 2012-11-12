@@ -13,7 +13,7 @@ namespace Tests.PropertySet.CommonUsage
       // ReSharper disable RedundantArgumentName
       protected override dynamic MockValue<T>(T value)
       {
-         return Duck.New(Prop: As.PropertySet((T t) => _value = t)); // domkniêciem membera wyeliminowaæ
+         return Duck.New(Prop: As.Setter((T t) => _value = t)); // domkniêciem membera wyeliminowaæ
       }
       // ReSharper enable RedundantArgumentName
 

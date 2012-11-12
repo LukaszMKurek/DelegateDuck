@@ -14,7 +14,7 @@ namespace Tests.Dynamic
       public void T01()
       {
          var obj = Duck.New(
-            Property: new Func<int, int>(i => i*5).PropertyValue());
+            Property: As.PropertyValue(new Func<int, int>(i => i * 5)));
 
          int result = obj.Property(5);
 
@@ -25,7 +25,7 @@ namespace Tests.Dynamic
       public void T02()
       {
          var obj = Duck.New(
-            Property: new Func<int, int>(i => i * 5).PropertyValue());
+            Property: As.PropertyValue(new Func<int, int>(i => i * 5)));
 
          Func<int, int> func = obj.Property;
 

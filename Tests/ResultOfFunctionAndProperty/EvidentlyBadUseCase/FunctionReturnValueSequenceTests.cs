@@ -15,7 +15,7 @@ namespace Tests.ResultOfFunctionAndProperty.EvidentlyBadUseCase
       protected override dynamic MockValue<T>(T value)
       {
          return Duck.New(
-            Prop: new[] { value, default(T) }.MethodResultSequence());
+            Prop: As.MethodResultSequence(value, default(T)));
       }
       // ReSharper restore RedundantArgumentName
 

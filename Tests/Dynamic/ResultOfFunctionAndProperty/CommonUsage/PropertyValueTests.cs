@@ -14,7 +14,7 @@ namespace Tests.Dynamic.ResultOfFunctionAndProperty.CommonUsage
       protected override dynamic MockValue<T>(T value)
       {
          return Duck.New(
-            Prop: value.PropertyValue());
+            Prop: As.PropertyValue(value));
       }
       // ReSharper restore RedundantArgumentName
 

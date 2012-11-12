@@ -13,7 +13,7 @@ namespace Tests.PropertySet.CommonUsage
       {
          object val = 0f;
 
-         return Duck.New(Prop: As.PropertySet((T t) => val = t).Get(() => (T)val));
+         return Duck.New(Prop: As.Setter((T t) => val = t).Getter(() => (T)val));
       }
       // ReSharper enable RedundantArgumentName
 
